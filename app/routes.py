@@ -1,14 +1,15 @@
 from app import app
 from app.forms import LoginForm
 from app.models import User
-from flask import render_template, flash, redirect, url_for
+from flask import flash, redirect, render_template, request, url_for
 from flask_login import current_user, login_required, login_user, logout_user
+from werkzeug.urls import url_parse
 
 @app.route('/')
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Jerry'}
+    # user = {'username': 'Jerry'}
     posts = [
         {
             'author': {'username': 'John'},
@@ -19,7 +20,7 @@ def index():
             'body': 'The Avengers movie was so cool!'
         }
     ]
-    return render_template('index.html', title='Home', user=user, posts=posts)
+    return render_template('index.html', title='Home', posts=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
