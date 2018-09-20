@@ -1,0 +1,8 @@
+SMTP Debug:
+    export MAIL_SERVER="localhost"
+    export MAIL_PORT="8025"
+    unset MAIL_USE_TLS
+    unset MAIL_USERNAME
+    unset MAIL_PASSWORD
+
+    python -m smtpd -n -c DebuggingServer localhost:8025
