@@ -2,7 +2,7 @@
        <tr>
            <td width="70px">
                <a href="{{ url_for('user', username=post.author.username) }}">
-                   <img src="{{ post.author.avatar(36) }}"/>
+                   <img src="{{ post.author.avatar(70) }}" />
                </a>
            </td>
            <td>
@@ -10,7 +10,7 @@
                    {{ post.author.username }}
                </a>
                says:
-               <br/>
+               <br>
                {{ post.body }}
            </td>
        </tr>
