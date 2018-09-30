@@ -1,5 +1,5 @@
 from flask import Flask, request
-from flask_babel import Babel
+from flask_babel import Babel, lazy_gettext as _l
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_mail import Mail
@@ -17,6 +17,7 @@ migrate = Migrate(app, db)
 
 login = LoginManager(app)
 login.login_view = 'login'
+login.login_message = _l('Please log in to access this page.')
 
 babel = Babel(app)
 bootstrap = Bootstrap(app)
