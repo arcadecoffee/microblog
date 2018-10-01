@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-09-30 19:05-0500\n"
+"POT-Creation-Date: 2018-09-30 19:46-0500\n"
 "PO-Revision-Date: 2018-09-30 19:13-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -77,10 +77,6 @@ msgstr "Por favor use una dirección de email diferente."
 #: app/forms.py:62 app/forms.py:67
 msgid "Request Password Reset"
 msgstr "Pedir una nueva contraseña"
-
-#: app/forms.py:????????
-msgid "Search"
-msgstr "Buscar"
 
 #: app/routes.py:30
 msgid "Your post is now live!"
@@ -215,18 +211,6 @@ msgstr "Haz click aquí para pedir una nueva"
 msgid "Reset Your Password"
 msgstr "Nueva Contraseña"
 
-#: app/templates/search.html:4
-msgid "Search Results"
-msgstr "Resultados de Búsqueda"
-
-#: app/templates/search.html:12
-msgid "Previous results"
-msgstr "Resultados previos"
-
-#: app/templates/search.html:17
-msgid "Next results"
-msgstr "Resultados próximos"
-
 #: app/templates/user.html:8
 msgid "User"
 msgstr "Usuario"
@@ -256,4 +240,16 @@ msgstr "Seguir"
 #: app/templates/user.html:19
 msgid "Unfollow"
 msgstr "Dejar de seguir"
+
+#~ msgid "Search"
+#~ msgstr "Buscar"
+
+#~ msgid "Search Results"
+#~ msgstr "Resultados de Búsqueda"
+
+#~ msgid "Previous results"
+#~ msgstr "Resultados previos"
+
+#~ msgid "Next results"
+#~ msgstr "Resultados próximos"
 
