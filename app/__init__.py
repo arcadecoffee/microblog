@@ -1,3 +1,7 @@
+import logging
+from logging.handlers import RotatingFileHandler, SMTPHandler
+import os
+
 from flask import Flask, request
 from flask_babel import Babel, lazy_gettext as _l
 from flask_bootstrap import Bootstrap
@@ -24,11 +28,8 @@ bootstrap = Bootstrap(app)
 mail = Mail(app)
 moment = Moment(app)
 
-from app import errors, models, routes
-
-import logging
-from logging.handlers import RotatingFileHandler, SMTPHandler
-import os
+from app.errors import bp as errors_bp
+app.register_blueprint(errors_bp)
 
 if not app.debug:
     if app.config['MAIL_SERVER']:
@@ -62,3 +63,6 @@ if not app.debug:
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+from app import errors, models, routes
