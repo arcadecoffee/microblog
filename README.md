@@ -6,8 +6,11 @@ pipenv install
 ```
 
 ## server configuration
+### .flaskenv
 ```
-.flaskenv
+FLASK_APP=microblog.py
+
+FLASK_ENV=development
 ```
 
 ### .env
