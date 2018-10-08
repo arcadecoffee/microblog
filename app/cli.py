@@ -1,13 +1,13 @@
 import click
 import os
 
+from app.models import Post
 
 def register(app):
     @app.cli.group()
     def translate():
         """Translation and localization commands."""
         pass
-
 
     @translate.command()
     @click.argument('lang')
@@ -20,7 +20,6 @@ def register(app):
             raise RuntimeError('init command failed')
         os.remove('messages.pot')
 
-
     @translate.command()
     def update():
         """Update all languages."""
@@ -30,9 +29,18 @@ def register(app):
             raise RuntimeError('update command failed')
         os.remove('messages.pot')
 
-
     @translate.command()
     def compile():
         """Compile all languages."""
         if os.system('pybabel compile -d app/translations'):
             raise RuntimeError('compile command failed')
+
+    @app.cli.group()
+    def search():
+        """Search and indexing commands."""
+        pass
+
+    @search.command()
+    def reindex():
+        """Rebuild the search index."""
+        Post.reindex()
