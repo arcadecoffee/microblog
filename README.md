@@ -41,5 +41,5 @@ flask search reindex
 
 ## start
 ```Shell
-pipenv run flask run
+flask run
 ```
