@@ -2,9 +2,12 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  class MSTranslatorKey
+  class Prompt
+    def initialize(prompt)
+       @prompt = prompt
+    end
     def to_s
-      print "MS Translator Key: "
+      print @prompt
       STDIN.gets.chomp
     end
   end
@@ -18,7 +21,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "deployment/debian.sh"
 
   config.vm.provision "shell", path: "deployment/install.sh", privileged: false,
-    env: {"MS_TRANSLATOR_KEY" => MSTranslatorKey.new}
+    env: {"MS_TRANSLATOR_KEY" => Prompt.new("MS_TRANSLATOR_KEY: "),
+          "DATABASE_PASSWORD" => Prompt.new("DATABASE_PASSWORD: ")}
 
   config.vm.provision "shell", inline: "cat ~/microblog/.env", privileged: false
 end
