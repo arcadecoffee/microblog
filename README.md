@@ -13,7 +13,7 @@ FLASK_APP=microblog.py
 
 ### .env
 ```
-FLASK_ENV=development
+FLASK_ENV=production
 
 SECRET_KEY=<secret key>
 
