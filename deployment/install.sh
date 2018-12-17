@@ -4,7 +4,7 @@ adduser --gecos "" --disabled-login --disabled-password microblog
 
 git clone https://github.com/arcadecoffee/microblog /home/microblog/microblog
 cd /home/microblog/microblog
-git fetch origin && git reset --hard origin/master && git clean -f -d
+git pull
 git checkout chapter-17
 
 python3 -m venv venv
@@ -34,13 +34,14 @@ flask db upgrade
 
 mkdir certs
 openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
-    -keyout certs/key.pem -out certs/cert.pem
+    -keyout certs/key.pem -out certs/cert.pem \
+    -subj "/C=US/ST=Fake/L=Temp/O=Unreal/CN=testing.domain"
 
 chown -R microblog:microblog /home/microblog
 
 cp deployment/supervisor/microblog.conf /etc/supervisor/conf.d/microblog.conf
 cp deployment/nginx/microblog /etc/nginx/sites-enabled/microblog
-# rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-enabled/default
 
 supervisorctl reload
 service nginx reload
