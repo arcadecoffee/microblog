@@ -5,7 +5,7 @@ adduser --gecos "" --disabled-login --disabled-password microblog
 git clone https://github.com/arcadecoffee/microblog /home/microblog/microblog
 cd /home/microblog/microblog
 git pull
-git checkout chapter-17
+git checkout v0.17
 
 python3 -m venv venv
 source venv/bin/activate
