@@ -9,7 +9,7 @@ git pull
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-pip install gunicorn pymysql
+pip install pymysql
 
 touch .env
 chmod 600 .env

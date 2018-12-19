@@ -18,6 +18,9 @@ flask-babel = "*"
 guess-language-spirit = "*"
 requests = "*"
 elasticsearch = "*"
+gunicorn = "*"
+pymysql = "*"
+psycopg2 = "*"
 
 [dev-packages]
 

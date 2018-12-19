@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.box = "generic/ubuntu1804"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.network "private_network", ip: "192.168.33.10"
   
   config.vm.provider "virtualbox" do |vb|
@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "hyperv" do |h, override|
     h.memory = "1024"
+    override.vm.box = "generic/ubuntu1804"
   end
 
   config.vm.provision "shell", path: "deployment/debian.sh"
