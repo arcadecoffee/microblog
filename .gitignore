@@ -242,3 +242,16 @@ $RECYCLE.BIN/
 *.box
 
 # End of https://www.gitignore.io/api/vagrant
+
+# Created by https://www.gitignore.io/api/database
+# Edit at https://www.gitignore.io/?templates=database
+
+### Database ###
+*.accdb
+*.db
+*.dbf
+*.mdb
+*.pdb
+*.sqlite3
+
+# End of https://www.gitignore.io/api/database
