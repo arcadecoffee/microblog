@@ -1,2 +1,2 @@
-release: flask db upgrade
-web: sh deployment/heroku_web.sh
+release: deployment/heroku_release.sh
+web: deployment/heroku_web.sh
