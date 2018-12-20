@@ -11,5 +11,11 @@ def not_found_error(error):
 
 @bp.app_errorhandler(500)
 def internal_error(error):
-    db.session.rollback()
-    return render_template('errors/500.html'), 500
+    try:
+        db.session.rollback()
+    except Exception as ex:
+        template = "An exception of type {0} occurred. Arguments\n{1!r}"
+        message = template.format(type(ex).__name__, ex.args)
+        app.logger.error(message)
+    finally:
+        return render_template('errors/500.html'), 500
