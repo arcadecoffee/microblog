@@ -1,4 +1,7 @@
 #!/bin/bash
 
 flask db upgrade
-curl -f -X PUT $SEARCHBOX_SSL_URL/post
+if [ $SEARCHBOX_SSL_URL ]
+    then
+        curl -f -X PUT $SEARCHBOX_SSL_URL/post
+    fi
