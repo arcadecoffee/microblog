@@ -15,12 +15,12 @@ pyjwt = "*"
 flask-bootstrap = "*"
 flask-moment = "*"
 flask-babel = "*"
-guess-language-spirit = "*"
 requests = "*"
 elasticsearch = "*"
 gunicorn = "*"
 pymysql = "*"
 psycopg2 = "*"
+textblob = "*"
 
 [dev-packages]
 

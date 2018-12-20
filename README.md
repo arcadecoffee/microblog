@@ -31,6 +31,9 @@ LOG_TO_STDOUT=1
 MAIL_SERVER=localhost
 MAIL_PORT=25
 #
+# run local debugging SMTP server
+# python -m smtpd -n -c DebuggingServer localhost:8026
+#
 # external mail service 
 # MAIL_USERNAME=<username>
 # MAIL_PASSWORD=<password>

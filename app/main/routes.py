@@ -4,7 +4,7 @@ from flask import current_app, flash, g, jsonify, redirect, render_template, \
         request, url_for
 from flask_babel import _, get_locale
 from flask_login import current_user, login_required
-from guess_language import guess_language
+from textblob import TextBlob
 
 from app import db
 from app.main import bp
@@ -28,9 +28,8 @@ def before_request():
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        language = guess_language(form.post.data)
-        if language == 'UNKNOWN' or len(language) > 5:
-            language = ''
+        language = '' if len(form.post.data) < 3 \
+                else TextBlob(form.post.data).detect_language()
         post = Post(body=form.post.data, author=current_user,
                     language=language)
         db.session.add(post)
