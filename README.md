@@ -53,6 +53,7 @@ python3 -c 'import secrets; print(secrets.token_urlsafe(24))'
 
 ## setup
 ```Shell
+flask db upgrade
 flask translate compile
 flask search reindex
 ```
