@@ -17,12 +17,10 @@ flask-moment = "*"
 flask-babel = "*"
 requests = "*"
 elasticsearch = "*"
-gunicorn = "*"
-pymysql = "*"
-psycopg2 = "*"
 textblob = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.6"
