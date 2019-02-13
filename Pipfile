@@ -20,10 +20,6 @@ elasticsearch = "*"
 textblob = "*"
 
 [dev-packages]
-pylama = "*"
-bandit = "*"
-flake8 = "*"
-pylint = "*"
 
 [requires]
 python_version = "3.6"
