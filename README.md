@@ -1,12 +1,15 @@
 # microblog
 
 ## setup
+
 ```Shell
 pipenv install
 ```
 
 ## server configuration
+
 ### environment
+
 ```Shell
 FLASK_APP=microblog.py
 
@@ -34,7 +37,7 @@ MAIL_PORT=25
 # run local debugging SMTP server
 # python -m smtpd -n -c DebuggingServer localhost:8026
 #
-# external mail service 
+# external mail service
 # MAIL_USERNAME=<username>
 # MAIL_PASSWORD=<password>
 # MAIL_PORT=587
@@ -47,11 +50,13 @@ MS_TRANSLATOR_KEY=<API key>
 ```
 
 ## generating secrets and passworks
+
 ```Shell
 python3 -c 'import secrets; print(secrets.token_urlsafe(24))'
 ```
 
-## setup
+## deployment
+
 ```Shell
 flask db upgrade
 flask translate compile
@@ -59,6 +64,13 @@ flask search reindex
 ```
 
 ## start
+
 ```Shell
 flask run
 ```
+
+## Docker / Compose deployment
+
+1. Configure .env with MAIL settings, TRANSLATE API key, SECRET_KEY
+2. Update docker-compose with new DB password if desired
+3. docker-compose up

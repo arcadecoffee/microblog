@@ -20,6 +20,9 @@ elasticsearch = "*"
 textblob = "*"
 
 [dev-packages]
+pylama = "*"
+bandit = "*"
+flake8 = "*"
 pylint = "*"
 
 [requires]
