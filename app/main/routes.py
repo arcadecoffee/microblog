@@ -8,8 +8,8 @@ from textblob import TextBlob
 
 from app import db
 from app.main import bp
-from app.main.forms import EditProfileForm, PostForm, SearchForm
-from app.models import Post, User
+from app.main.forms import EditProfileForm, MessageForm, PostForm, SearchForm
+from app.models import Message, Post, User
 from app.translate import translate
 
 
@@ -155,3 +155,19 @@ def translate_text():
     return jsonify({'text': translate(request.form['text'],
                                       request.form['source_language'],
                                       request.form['dest_language'])})
+
+
+@bp.route('/send_message/<recipient>', methods=['GET', 'POST'])
+@login_required
+def send_message(recipient):
+    user = User.query.filter_by(username=recipient).first_or_404()
+    form = MessageForm()
+    if form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user,
+                body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash(_('Your message has been send.'))
+        return redirect(url_for('main.user', username=recipient))
+    return render_template('send_message.html', title=_('Send Message'),
+            form=form, recipient=recipient)
